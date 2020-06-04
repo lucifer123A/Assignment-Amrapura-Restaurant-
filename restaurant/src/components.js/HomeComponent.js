@@ -9,9 +9,11 @@ class Home extends Component{
         super(props)
         this.state={
             isModalOpen:false,
+            isClicked:false,
         }
         this.toggleModal= this.toggleModal.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
+        this.handleS= this.handleS.bind(this);
     }
 
     toggleModal(){
@@ -21,8 +23,13 @@ class Home extends Component{
     }
 
     handleSubmit(){
-        this.toggleModal();
-        alert("Date: "+this.date.value+" Items Ordered: "+this.dish.value);
+        this.setState({
+            isClicked: !this.state.isClicked
+        });
+    }
+
+    handleS(event){
+        event.preventDefault();
     }
 
     render(){
@@ -45,7 +52,7 @@ class Home extends Component{
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 <ModalHeader toggle={this.toggleModal}>Add Visit</ModalHeader>
                     <ModalBody>
-                    <Form onSubmit={this.handleLogin}>
+                    <Form onSubmit={this.handleS}>
                             <FormGroup>
                                 <Label htmlFor="date">Date</Label>
                                 <Input type="date" id="date" name="date"
@@ -56,34 +63,66 @@ class Home extends Component{
                                 <Input type="text" for="dish" name="dish"
                                 innerRef={(input)=>this.dish=input}/>
                             </FormGroup>
-                            <Button type="submit" value="submit" className="bg-primary">Submit</Button>
+                            <Button type="submit" value="submit" className="bg-primary"
+                            onClick={this.handleSubmit}>Submit</Button>
                         </Form>
                     </ModalBody>
-                    <Card>
-                        <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
-                        <CardBody className="cardbodyClass">
-                            <h4>Today as your First Visit</h4>
-                            <p>Amrapura offers you the welcome discount of
-                                <strong>5%</strong>
-                            </p>
-                        </CardBody>
-                    </Card>
-                    <Card>
-                        <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
-                        <CardBody className="cardbodyClass">
-                            <h4>On your Second Visit</h4>
-                            <p> You can get one of the three items completely free</p>
-                            <ul>
-                                <li>Panner Tikka</li>
-                                <li>Pizza</li>
-                                <li>Burger</li>
-                            </ul>
-                        </CardBody>
-                    </Card>
-                </Modal>          
-            </>
-            
+                </Modal>   
+                <Check check={this.state.isClicked}/>
+                </>       
         );
+
+        function Check({check}){
+            if (check){
+                return(
+                    <>
+                    <Card>
+                     <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
+                     <CardBody className="cardbodyClass">
+                         <h4>On your Second Visit</h4>
+                         <p> You can get one of the three items completely free</p>
+                         <ul>
+                             <li>Panner Tikka</li>
+                             <li>Pizza</li>
+                             <li>Burger</li>
+                         </ul>
+                     </CardBody>
+                 </Card>
+                 </>
+                )
+            }
+            else{
+                return(
+                    <>
+                <Card>
+                    <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
+                    <CardBody className="cardbodyClass">
+                        <h4>Today as your First Visit</h4>
+                        <p>Amrapura offers you the welcome discount of
+                            <strong> 5%</strong>
+                        </p>
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
+                    <CardBody className="cardbodyClass">
+                        <h4>On your Second Visit</h4>
+                        <p> You can get one of the three items completely free</p>
+                        <ul>
+                            <li>Panner Tikka</li>
+                            <li>Pizza</li>
+                            <li>Burger</li>
+                        </ul>
+                    </CardBody>
+                </Card>
+                </>
+                )
+                
+            }
+        }
+                
+            
+            
     }
 }
 
