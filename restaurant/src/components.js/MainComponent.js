@@ -2,20 +2,34 @@ import React from 'react';
 import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import Car from './CarouselComponent';
 import {Switch , Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {signingUp} from '../redux/ActionCreators';
 import {actions} from 'react-redux-form';
 
-class Main extends React.Component{
-    constructor(props){
-        super(props);
+const mapStateToProps= state=> {
+    return{
+        users: state.users
     }
+}
+
+const mapDisatchToProps= (dispatch)=> ({
+    signingUp: (email,username,password)=> dispatch(signingUp(email,username,password)),
+    resetSignUp: ()=> {dispatch(actions.reset('customers'))}
+})
+
+class Main extends React.Component{
+    
+   
+    
     render(){
         return(
             <>
-            <Header/>
+            <Header signingUp={this.props.signingUp}/>
             <Switch>
                 <Route path="/home" component={Home}/>
+                <Route path="/stock" component={Car}/>
                 <Redirect to="/home"/>
             </Switch>
             <Footer/>
@@ -24,4 +38,4 @@ class Main extends React.Component{
     }
 }
 
-export default withRouter(Main);
+export default withRouter(connect(mapStateToProps, mapDisatchToProps)(Main));

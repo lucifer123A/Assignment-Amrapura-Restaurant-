@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
-    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Navbar, Nav, NavbarToggler, Collapse, NavItem, Row, Col,
+    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, ButtonGroup, Container} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
+import { Control } from 'react-redux-form';
 
 class Header extends React.Component{
     constructor(props){
@@ -9,10 +10,21 @@ class Header extends React.Component{
         this.state={
             isNavOpen:false,
             isModalOpen: false,
+            isModslOpen2: false,
         }
         this.handleNav=this.handleNav.bind(this);
         this.handleModal=this.handleModal.bind(this);
+        this.handleModal2=this.handleModal2.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
+
+    handleSubmit(values){
+        console.log("Current state is: "+JSON.stringify(values));
+        alert("current state is: "+JSON.stringify(values));
+        this.props.signingUp(values.email,values.username,values.password);
+        this.props.resetSignUp();
+    }
+
     handleNav(){
         this.setState({
             isNavOpen: !this.state.isNavOpen,
@@ -24,6 +36,14 @@ class Header extends React.Component{
             isModalOpen: !this.state.isModalOpen
         })
     }
+
+    handleModal2(){
+        this.setState({
+            isModalOpen2: !this.state.isModalOpen2,
+            isModalOpen: !this.state.isModalOpen
+        })
+    }
+
     render(){
         return(
             <>
@@ -39,8 +59,8 @@ class Header extends React.Component{
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/menu">
-                                    <span className="fa fa-list fa-lg"></span>Menu
+                                <NavLink className="nav-link" to="/stock">
+                                    <span className="fa fa-list fa-lg"></span>Stock
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -53,29 +73,65 @@ class Header extends React.Component{
                                     <span className="fa fa-address-card fa-lg"></span>Contact Us
                                 </NavLink>
                             </NavItem>
-                        </Nav>
+                            </Nav>
+                            <Nav className="ml-auto" navbar>
+                            <NavItem>
+                                    <Button outline onClick={this.handleModal}>
+                                        <span className="fa fa-sign-in fa-lg"></span>Login
+                                    </Button>                                                                                   
+                            </NavItem>
+                            </Nav>                                                  
                         </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            
-                            <div className="col-sm-4 mr-auto">
-                                <img src="images/logo.PNG"
-                                 alt="Amrapur Restaurant" className="logoImage"/>
-                            </div>
-                            <div className="col-12 col-sm-8">
-                                <h1>Amrapur Restaurant</h1>
-                                <p>We serve Love with the food.
-                                Our food contains the taste from all across the nation.
-                                Taste our food and you will feel as if you have visited
-                                India sitting at the table of our restaurant. 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron>
+
+                <Modal isOpen={this.state.isModalOpen} toggle={this.handleModal}>                    
+                    <ModalHeader className="modalHeader" toggle={this.handleModal}>Login</ModalHeader>
+                    <ModalBody className="modalBody">
+                        <Form>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                innerRef={(ip)=>this.username=ip}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                innerRef={(ip)=>this.password=ip}/>
+                            </FormGroup>
+                            <Button type="submit" value="submit" className="bg-primary">Login</Button>
+                            <Button onClick={this.handleModal2} className="bg-grey">Sign up</Button> 
+                        </Form>
+                    </ModalBody>                                  
+                </Modal>
+
+                <Modal isOpen={this.state.isModalOpen2} toggle={this.handleModal2}>
+                    <ModalHeader className="modalHeader" toggle={this.handleModal2}>Sign up</ModalHeader>
+                    <ModalBody className="modalBody">
+                        <Container>
+                            <Form  model="customers" onSubmit={(values)=> this.handleSubmit(values)}>
+                                <FormGroup>
+                                    <Label htmlFor="email">Email</Label>
+                                    <Input type="email" id="email" name="email"
+                                    innerRef={(ip)=>this.email=ip}/>
+                                </FormGroup>
+                                <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                innerRef={(ip)=>this.username=ip}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                innerRef={(ip)=>this.password=ip}/>
+                            </FormGroup>
+                            <Button type="submit" value="submit" className="bg-primary">Sign up</Button>
+                            </Form>
+                        </Container>
+                    </ModalBody>
+                </Modal>
+
+                
             </>
         );
     }

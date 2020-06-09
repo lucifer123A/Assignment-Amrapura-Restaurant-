@@ -50,13 +50,25 @@ address{
   color: white;
 }
 
-.cardClass{
+.modalHeader{
   background: rgb(6, 46, 99) ;
   color:floralwhite;
 }
 
-.cardbodyClass{
+.modalBody{
   background: rgb(148, 7, 7); ;
   color:floralwhite;
-  margin-bottom: 40px;
+}
+
+.car{
+  background: black;
+  text: white;
+}
+
+.imgCont{
+  float: left 
+}
+
+.textCont{
+  float: left !important;
 }

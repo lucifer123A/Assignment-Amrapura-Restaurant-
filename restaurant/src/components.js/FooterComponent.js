@@ -10,7 +10,7 @@ function Footer(){
                     <h5>Links</h5>
                     <ul className="list-unstyled">
                         <li><Link to="/home">Home</Link></li>
-                        <li><Link to="/menu">Menu</Link></li>
+                        <li><Link to="/stock">Stock</Link></li>
                         <li><Link to="/aboutus">About Us</Link></li>
                         <li><Link to="/contactus">Contact Us</Link></li>
                     </ul>
@@ -22,8 +22,7 @@ function Footer(){
 		              Sant Kanteshwar Marg<br />
 		              Jaipur, Rajasthan<br />
                       India<br />
-		              <i className="fa fa-phone fa-lg"></i>: +91 1234 5678<br />
-		              <i className="fa fa-fax fa-lg"></i>: +91 8765 4321<br />
+		              <i className="fa fa-phone fa-lg"></i>: +91 9460383272<br />
 		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:lokeshdulani91@gmail.com">
                         lokeshdulani91@gmail.com</a>
                     </address>
@@ -41,7 +40,7 @@ function Footer(){
             </div>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Copyright 2018 Amrapur Restaurant</p>
+                    <p>© Copyright 2018 Amrapura Confectionary</p>
                 </div>
             </div>
         </div>

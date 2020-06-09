@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, ModalHeader, ModalBody, Button, Label, Input,
-     Col, Row,Form, FormGroup,Card, CardBody, CardHeader} from 'reactstrap';
+import {Jumbotron} from 'reactstrap';
 
 
 
@@ -35,91 +34,32 @@ class Home extends Component{
     render(){
         return(
             <>
-            <div className="container">
-                <div className="row" >
-                    <h2>Amrapur restaurant Welcomes You</h2>
-                </div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <p>Be ready as you are going to taste the most delicious meal of your life
-                        We have booked the table for you so please enjoy your meal now.</p>
+            <Jumbotron>
+                    <div className="container">
+                        <div className="row row-header">
+                            
+                            <div className="col-sm-4 mr-auto">
+                                <img src="images/logo.PNG"
+                                 alt="Amrapur Restaurant" className="logoImage"/>
+                            </div>
+                            <div className="col-12 col-sm-8">
+                                <h1>Amrapura Confectionary</h1>
+                                <p>A perfect place to find your daily needs from the milk products
+                                    to the bakery items we have it all. 
+                                    You are an adult looking to buy something for home or
+                                    you are just a teenager who is looking for new chocolates and soft-drinks
+                                    or you are a kid and looking for some exciting candies.
+                                    You must visit our store. 
+                                </p>
+                                <p><em>Building trust since 2000</em></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="row space">
-                    <Button className="forButton" onClick={this.toggleModal}>Add Visit</Button>
-                </div>
-                </div>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                <ModalHeader toggle={this.toggleModal}>Add Visit</ModalHeader>
-                    <ModalBody>
-                    <Form onSubmit={this.handleS}>
-                            <FormGroup>
-                                <Label htmlFor="date">Date</Label>
-                                <Input type="date" id="date" name="date"
-                                innerRef={(input)=>this.date=input}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="dish">Items ordered</Label>
-                                <Input type="text" for="dish" name="dish"
-                                innerRef={(input)=>this.dish=input}/>
-                            </FormGroup>
-                            <Button type="submit" value="submit" className="bg-primary"
-                            onClick={this.handleSubmit}>Submit</Button>
-                        </Form>
-                    </ModalBody>
-                </Modal>   
-                <Check check={this.state.isClicked}/>
+                </Jumbotron>              
                 </>       
         );
 
-        function Check({check}){
-            if (check){
-                return(
-                    <>
-                    <Card>
-                     <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
-                     <CardBody className="cardbodyClass">
-                         <h4>On your Second Visit</h4>
-                         <p> You can get one of the three items completely free</p>
-                         <ul>
-                             <li>Panner Tikka</li>
-                             <li>Pizza</li>
-                             <li>Burger</li>
-                         </ul>
-                     </CardBody>
-                 </Card>
-                 </>
-                )
-            }
-            else{
-                return(
-                    <>
-                <Card>
-                    <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
-                    <CardBody className="cardbodyClass">
-                        <h4>Today as your First Visit</h4>
-                        <p>Amrapura offers you the welcome discount of
-                            <strong> 5%</strong>
-                        </p>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardHeader className="cardClass">Loyalty Timeline</CardHeader>
-                    <CardBody className="cardbodyClass">
-                        <h4>On your Second Visit</h4>
-                        <p> You can get one of the three items completely free</p>
-                        <ul>
-                            <li>Panner Tikka</li>
-                            <li>Pizza</li>
-                            <li>Burger</li>
-                        </ul>
-                    </CardBody>
-                </Card>
-                </>
-                )
-                
-            }
-        }
+        
                 
             
             
