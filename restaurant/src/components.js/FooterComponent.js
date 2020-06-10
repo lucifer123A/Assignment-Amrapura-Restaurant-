@@ -11,17 +11,15 @@ function Footer(){
                     <ul className="list-unstyled">
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/stock">Stock</Link></li>
-                        <li><Link to="/aboutus">About Us</Link></li>
-                        <li><Link to="/contactus">Contact Us</Link></li>
+                        <li><Link to="/account">Account</Link></li>
                     </ul>
                 </div>
                 <div className="col-7 col-sm-5">
                     <h5>Our Address</h5>
                     <address>
-		              Sector-2, Lane No.-6<br />
-		              Sant Kanteshwar Marg<br />
-		              Jaipur, Rajasthan<br />
-                      India<br />
+		              Sector-2, Shop No.-6<br />
+		              Opp. to 2/455, Behind Shiv Park <br/>
+		              Jaipur, Rajasthan, India<br />
 		              <i className="fa fa-phone fa-lg"></i>: +91 9460383272<br />
 		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:lokeshdulani91@gmail.com">
                         lokeshdulani91@gmail.com</a>
@@ -40,7 +38,7 @@ function Footer(){
             </div>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Copyright 2018 Amrapura Confectionary</p>
+                    <p>© Copyright 2020 Amrapura Confectionary</p>
                 </div>
             </div>
         </div>

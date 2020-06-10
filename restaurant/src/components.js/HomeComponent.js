@@ -4,33 +4,6 @@ import {Jumbotron} from 'reactstrap';
 
 
 class Home extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            isModalOpen:false,
-            isClicked:false,
-        }
-        this.toggleModal= this.toggleModal.bind(this);
-        this.handleSubmit= this.handleSubmit.bind(this);
-        this.handleS= this.handleS.bind(this);
-    }
-
-    toggleModal(){
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        });
-    }
-
-    handleSubmit(){
-        this.setState({
-            isClicked: !this.state.isClicked
-        });
-    }
-
-    handleS(event){
-        event.preventDefault();
-    }
-
     render(){
         return(
             <>

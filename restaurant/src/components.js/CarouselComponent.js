@@ -15,11 +15,11 @@ function ControlledCarousel(){
                         The higher the cocoa content, as in dark chocolate, the more benefits there are.
                         Dark chocolate may also contain less fat and sugar, but it is important to check the label.
                         Eating chocolate may have the following benefits:</p>
-                        <ul>
+                        <ol>
                             <li>Lowering cholesterol levels</li>
                             <li>Preventing cognitive decline</li>
                             <li>Reducing the risk of cardiovascular problems</li>
-                        </ul>
+                        </ol>
                         <p>We have a wide variety of chocolates of different range and of various brands.
                             <em>So vist us to  get healthy by eating <strong>Chocolates</strong>.</em>
                         </p>
@@ -48,13 +48,38 @@ function ControlledCarousel(){
                     style={{'height':'400px'}}  className="d-block w-40 imgCont"/>
                     <Carousel.Caption className="cap">
                         <h3>Icecreams</h3>
+                        <p>Ice cream is a sweetened frozen food typically eaten as a snack or dessert.
+                        It may be made from dairy milk or cream and is flavoured with a sweetener,
+                        either sugar or an alternative, and any spice, such as cocoa or vanilla.
+                        Colourings are usually added, in addition to stabilizers.</p>
+                        <p>We now that we aren't an Icecream Parlour but we have all brands of it</p>
+                        <ul style={{listStyleType:"circle"}}>
+                            <li>Vadilal</li>
+                            <li>Kwality Walts</li>
+                            <li>Ice-troopers</li>
+                            <li>Omni</li>
+                        </ul>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img src="images/biscuits.PNG" alt="biscuits"
-                    style={{'height':'400px'}}  className="d-block w-40 imgCont"/>
+                    style={{height:'400px'}}  className="d-block w-40 imgCont"/>
                     <Carousel.Caption className="cap">
                         <h3>Biscuits</h3>
+                        <p>Find the biscuits you love</p>
+                        <ul style={{listStyleType:"square"}}>
+                        <li>Parle G</li>
+                        <li>Krackjack</li>
+                        <li>20-20 Cookies</li>
+                        <li>Monaco-Salted Craker</li>
+                        <li>Golden Arcs</li>
+                        <li>Hide & Seek Choco Chips</li>
+                        <li>Top</li>
+                        <li>Hide & Seek Milano</li>
+                        <li>Happy Happy</li>
+                        <li>Hide & Seek Bourbon</li>
+                        <li>Hide & Seek Fab</li>
+                        </ul>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

@@ -27,7 +27,7 @@ export const signingUp = (email, username, password)=> (dispatch)=> {
             return response;
         }
         else{
-            var error= new Error('Error '+response.status+': '+response.statusText);
+            var error= new Error(response.status+': '+response.statusText);
             error.response= response;
             throw error;
         }

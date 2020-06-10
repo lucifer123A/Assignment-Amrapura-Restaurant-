@@ -54,13 +54,8 @@ class Header extends React.Component{
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/aboutus">
-                                    <span className="fa fa-info fa-lg"></span>About Us
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/contactus">
-                                    <span className="fa fa-address-card fa-lg"></span>Contact Us
+                                <NavLink className="nav-link" to="/account">
+                                    <span className="fa fa-info fa-lg"></span>Account
                                 </NavLink>
                             </NavItem>
                             </Nav>
@@ -94,10 +89,10 @@ class Header extends React.Component{
                                 <Row className="form-group">
                                     <Label htmlFor="password" md={12}>Password</Label>
                                     <Col md={12}>
-                                        <Control.text model=".password" id="password" name="password"/>
+                                        <Control.password model=".password" id="password" name="password"/>
                                     </Col>
                                 </Row>
-                            <Button type="submit" value="submit" className="bg-primary">Sign up</Button>
+                            <Button type="submit" className="bg-primary">Sign up</Button>
                             </Form>
                         
                     </ModalBody>

@@ -3,6 +3,7 @@ import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Car from './CarouselComponent';
+import Account from './AccountComponent';
 import {Switch , Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {signingUp} from '../redux/ActionCreators';
@@ -26,6 +27,7 @@ class Main extends React.Component{
             <Switch>
                 <Route path="/home" component={Home}/>
                 <Route path="/stock" component={Car}/>
+                <Route path="/account" component={Account}/>
                 <Redirect to="/home"/>
             </Switch>
             <Footer/>
