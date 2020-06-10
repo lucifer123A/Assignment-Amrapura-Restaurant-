@@ -1,28 +1,18 @@
 import React, {Component} from 'react';
+import { Control , Form} from 'react-redux-form';
 import { Navbar, Nav, NavbarToggler, Collapse, NavItem, Row, Col,
-    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, ButtonGroup, Container} from 'reactstrap';
+    Button, Modal, ModalHeader, ModalBody,  FormGroup, Label, Input, ButtonGroup, Container} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-import { Control } from 'react-redux-form';
 
 class Header extends React.Component{
     constructor(props){
         super(props);
         this.state={
             isNavOpen:false,
-            isModalOpen: false,
-            isModslOpen2: false,
+            isModalOpen: false,           
         }
         this.handleNav=this.handleNav.bind(this);
         this.handleModal=this.handleModal.bind(this);
-        this.handleModal2=this.handleModal2.bind(this);
-        this.handleSubmit=this.handleSubmit.bind(this);
-    }
-
-    handleSubmit(values){
-        console.log("Current state is: "+JSON.stringify(values));
-        alert("current state is: "+JSON.stringify(values));
-        this.props.signingUp(values.email,values.username,values.password);
-        this.props.resetSignUp();
     }
 
     handleNav(){
@@ -37,11 +27,11 @@ class Header extends React.Component{
         })
     }
 
-    handleModal2(){
-        this.setState({
-            isModalOpen2: !this.state.isModalOpen2,
-            isModalOpen: !this.state.isModalOpen
-        })
+    handleSubmit(values){
+        console.log("Current state is: "+JSON.stringify(values));
+        alert("current state is: "+JSON.stringify(values));
+        this.props.signingUp(values.email,values.username,values.password);
+        this.props.resetSignUp();
     }
 
     render(){
@@ -76,60 +66,44 @@ class Header extends React.Component{
                             </Nav>
                             <Nav className="ml-auto" navbar>
                             <NavItem>
-                                    <Button outline onClick={this.handleModal}>
-                                        <span className="fa fa-sign-in fa-lg"></span>Login
-                                    </Button>                                                                                   
+                            <Button onClick={this.handleModal}>Sign up</Button>
+                                                                                                                      
                             </NavItem>
                             </Nav>                                                  
                         </Collapse>
                     </div>
                 </Navbar>
 
-                <Modal isOpen={this.state.isModalOpen} toggle={this.handleModal}>                    
-                    <ModalHeader className="modalHeader" toggle={this.handleModal}>Login</ModalHeader>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.handleModal}>
+                    <ModalHeader className="modalHeader" toggle={this.handleModal}>Sign up</ModalHeader>
                     <ModalBody className="modalBody">
-                        <Form>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                innerRef={(ip)=>this.username=ip}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password"
-                                innerRef={(ip)=>this.password=ip}/>
-                            </FormGroup>
-                            <Button type="submit" value="submit" className="bg-primary">Login</Button>
-                            <Button onClick={this.handleModal2} className="bg-grey">Sign up</Button> 
-                        </Form>
-                    </ModalBody>                                  
-                </Modal>
-
-                <Modal isOpen={this.state.isModalOpen2} toggle={this.handleModal2}>
-                    <ModalHeader className="modalHeader" toggle={this.handleModal2}>Sign up</ModalHeader>
-                    <ModalBody className="modalBody">
-                        <Container>
+                        
                             <Form  model="customers" onSubmit={(values)=> this.handleSubmit(values)}>
-                                <FormGroup>
-                                    <Label htmlFor="email">Email</Label>
-                                    <Input type="email" id="email" name="email"
-                                    innerRef={(ip)=>this.email=ip}/>
-                                </FormGroup>
-                                <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                innerRef={(ip)=>this.username=ip}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password"
-                                innerRef={(ip)=>this.password=ip}/>
-                            </FormGroup>
+                                <Row className="form-group">
+                                    <Label htmlFor="email" md={12}>Email</Label>
+                                    <Col md={12}>
+                                        <Control.text model=".email" id="email" name="email"/>
+                                    </Col>
+                                </Row>
+                                <Row className="form-group">
+                                    <Label htmlFor="username" md={12}>Username</Label>
+                                    <Col md={12}>
+                                        <Control.text model=".username" id="username" name="username"/>
+                                    </Col>
+                                </Row>
+                                <Row className="form-group">
+                                    <Label htmlFor="password" md={12}>Password</Label>
+                                    <Col md={12}>
+                                        <Control.text model=".password" id="password" name="password"/>
+                                    </Col>
+                                </Row>
                             <Button type="submit" value="submit" className="bg-primary">Sign up</Button>
                             </Form>
-                        </Container>
+                        
                     </ModalBody>
                 </Modal>
+
+                
 
                 
             </>

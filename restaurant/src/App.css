@@ -56,17 +56,23 @@ address{
 }
 
 .modalBody{
-  background: rgb(148, 7, 7); ;
+  background: rgb(148, 7, 7); 
   color:floralwhite;
 }
 
 .car{
-  background: black;
+  background: rgb(6, 46, 99);
   text: white;
 }
 
+.cap{
+  text-align: left;
+  width:600px;
+}
+
 .imgCont{
-  float: left 
+  float: right; 
+  width:500px;
 }
 
 .textCont{

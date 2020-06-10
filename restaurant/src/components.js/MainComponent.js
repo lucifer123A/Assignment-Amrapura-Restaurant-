@@ -8,11 +8,6 @@ import {connect} from 'react-redux';
 import {signingUp} from '../redux/ActionCreators';
 import {actions} from 'react-redux-form';
 
-const mapStateToProps= state=> {
-    return{
-        users: state.users
-    }
-}
 
 const mapDisatchToProps= (dispatch)=> ({
     signingUp: (email,username,password)=> dispatch(signingUp(email,username,password)),
@@ -26,7 +21,8 @@ class Main extends React.Component{
     render(){
         return(
             <>
-            <Header signingUp={this.props.signingUp}/>
+            <Header signingUp={this.props.signingUp}
+            resetSignUp={this.props.resetSignUp}/>
             <Switch>
                 <Route path="/home" component={Home}/>
                 <Route path="/stock" component={Car}/>
@@ -38,4 +34,4 @@ class Main extends React.Component{
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDisatchToProps)(Main));
+export default withRouter(connect(undefined, mapDisatchToProps)(Main));

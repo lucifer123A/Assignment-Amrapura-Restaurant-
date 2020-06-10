@@ -6,15 +6,10 @@ export const addUser= (user)=> ({
     payload: user
 });
 
-export const userFailed= (errmess)=> ({
-    type:ActionTypes.USER_FAILED,
-    payload: errmess
-})
-
 export const signingUp = (email, username, password)=> (dispatch)=> {
     const newUser={
-        username: username,
         email: email,
+        username: username,       
         password: password
     }
     newUser.date = new Date().toISOString;
